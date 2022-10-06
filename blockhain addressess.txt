@@ -1,0 +1,45 @@
+Node 1
+Public key - 0x1c38894AbB08FC6fE0891Ac7A4334DC0327CEa76
+BLS Public key - 0x95a976f9d33ceb60ca3d5ee719aa3b2236c69ac305716f64bd12d869a0db64fa2d96972e936789e24da2176e3b6332b3
+Node ID - 16Uiu2HAmDbqB1PPU74r5jfoPCHgHE94AHTymgrvm49dKCucTBcFh
+
+Node 2
+Public key - 0x40Df1A617698A115F25bf2D533b148f161c280CA
+BLS Public key - 0x8a15070bf31eb5bf580275962b153ac9ee7f4f773aaa70133fdc0f82af03841e2411ffb2536fa8224f604fd7e1651712
+Node ID - 16Uiu2HAmJUsHExuKM1Njcy9HpJ1QdkD3QYm5JZf86gb3ZdgtJwFX
+
+Node 3
+Public key - 0x2fcc3e4156609410058780631C93B85611BACF97
+BLS Public key - 0x95214f21e4128714c75f1e1f2d39cf18a1f50c0b8b1a0ea22487715b86dfd2b9c9a82daadf51360511e498463bba1801
+Node ID - 16Uiu2HAmSXpvmUnY1f7JxDfz8VX2v7nAvnT5u8hzPHe9rbGuAaY3
+
+Node 4
+Public key - 0x40671C952193bB74727Ac8f31C7c461393F60496
+BLS Public key - 0xa3f6a0a316d73a3acb223c598dba858058d2bbd948882f3a70397b7c73f97840733bb19d45a5a24769d62fce066132ba
+Node ID - 16Uiu2HAkyvwVoJSTMKn2XAEKEduKem8ViVhz1anrE8vHxCtPNGVU
+
+Bootnode Setup - 
+
+Initialising all 4 nodes as bootnodes.
+
+polygon-edge genesis --consensus ibft --ibft-validators-prefix-path node --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmDbqB1PPU74r5jfoPCHgHE94AHTymgrvm49dKCucTBcFh --bootnode /ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmJUsHExuKM1Njcy9HpJ1QdkD3QYm5JZf86gb3ZdgtJwFX --bootnode /ip4/127.0.0.1/tcp/30001/p2p/16Uiu2HAmSXpvmUnY1f7JxDfz8VX2v7nAvnT5u8hzPHe9rbGuAaY3 --bootnode /ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAkyvwVoJSTMKn2XAEKEduKem8ViVhz1anrE8vHxCtPNGVU  
+
+Running all 4 nodes.(CLI Method)
+
+polygon-edge server --data-dir ./node1 --chain genesis.json --grpc-address :10000 --libp2p :10001 --jsonrpc :10002 --seal
+polygon-edge server --data-dir ./node2 --chain genesis.json --grpc-address :20000 --libp2p :20001 --jsonrpc :20002 --seal
+polygon-edge server --data-dir ./node3 --chain genesis.json --grpc-address :30000 --libp2p :30001 --jsonrpc :30002 --seal
+polygon-edge server --data-dir ./node4 --chain genesis.json --grpc-address :40000 --libp2p :40001 --jsonrpc :40002 --seal
+
+Running all 4 nodes.(Config file method)
+
+Create config file -
+polygon-edge server export --type json
+
+Running the file - 
+polygon-edge server --config ./default-config.json
+
+Creating a 5th non-validator node - 
+polygon-edge server --data-dir ./node5 --chain genesis.json --grpc-address :50000 --libp2p :50001 --jsonrpc :50002 
+
+
